@@ -26,6 +26,11 @@ connectDB();
 app.use(cors());
 app.use(express.json()); // Đọc dữ liệu JSON từ body
 
+// ✅ Route gốc (dùng để kiểm tra nhanh server)
+app.get("/", (req, res) => {
+  res.send("✅ Server appchothuemoi-server đang chạy ngon lành!");
+});
+
 // ✅ Định nghĩa route cho API xác thực
 // => Tất cả endpoint trong `routes/auth.js` sẽ có prefix: /api/auth
 app.use("/api/auth", authRoutes);
